@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+ <style>
+    .button{
+        background-color: rgb(8, 107, 255);
+        border: none;
+        color: white;
+        padding: 7px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 17px;
+        border: 2px solid rgba(9, 148, 28, 0.541);
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 8 rgba(0, 0, 0, 0.19);
+
+    }
+    .button{
+        border: solid 2px #ccc;
+    }
+    #output {
+        display: inline-block;
+        border: dotted 1px #ccc;
+        top: 4px;
+        position: relative;
+        padding: 2px;
+
+    }
+    .wrap {
+        border: solid 1px #ccc;
+        text-align: center;
+        padding: 10px;
+    }
+
+</style>
+
+<div style='position: fixed; top: 10px; width: 100%; text-align: center; z-index: 1;'>
+    <button class="button" id="bot1">Modelo de IRON MAN</button>
+    <button class="button" id="bot2">Modelo Planta</button> 
+    <button class="button" id="bot3">Modelo de MINION</button>      
+</div>
+<!--Diseño del cuerpo de la aplicación--> 
+   <body style='margin : 0px; overflow: hidden;'>
+     <a-scene embedded arjs="debugUIEnabled: false;" vr-mode-ui="enabled: false">
+        <a-marker preset="hiro">
+            <!--permite mostrar el diseño en el marcador de manera inmediata como comprobación-->
+            <a-entity id="Raumnt19" scale="1">
+            </a-entity>   
+         </a-marker>
+         <a-entity camera position="0 0 0"></a-entity>
+      </a-scene>
+      <script>
+         document.getElementById("bot1").addEventListener("click", (e)=>{
+            var di = document.querySelector('#Raumnt19');
+            di.setAttribute("obj-model", 'obj:url(IronMan/IronMan/IronMan.obj); mtl:url(IronMan/IronMan/IronMan.mtl)');
+            di.setAttribute("scale", '.010 .010 .010');
+          })
+    
+          document.getElementById("bot2").addEventListener("click", (e)=>{
+            var di = document.querySelector('#Raumnt19');
+            di.setAttribute("obj-model", 'obj:url(planta/planta.obj); mtl:url(planta/planta.mtl)');
+            di.setAttribute("scale", '.100 .100 .100');
+          })
+    
+          document.getElementById("bot3").addEventListener("click", (e)=>{
+            var di = document.querySelector('#Raumnt19');
+            di.setAttribute("obj-model", 'obj:url(OBJ/Minion.obj); mtl:url(OBJ/Minion.mtl)');
+            di.setAttribute("scale", '.10 .10 .10');
+           })
+     </script>
+    </body>
+</html>
+   
